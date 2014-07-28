@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://base.repositorio.unesp.br/XMLSchema/MetadataPatterner" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" vc:minVersion="1.1"
+	xmlns:mp="http://base.repositorio.unesp.br/XMLSchema/MetadataPatterner">
+  
+	<!-- structure -->
+    <xs:element name="patterns" type="mp:Patterns" />
+	<!-- end structure -->
+	
+	<!-- types definitions -->
+    <xs:complexType name="Patterns" >
+		<xs:sequence>
+			<xs:element name="pattern" type="mp:Pattern" minOccurs="1" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="Pattern">
+		<xs:sequence>
+			<xs:element name="rules" type="mp:Rules" />
+			<xs:element name="value" type="xs:string" />
+		</xs:sequence>
+		<xs:attribute name="label" use="optional" type="xs:string" />
+	</xs:complexType>
+	
+	<xs:complexType name="Rules">
+		<xs:sequence>
+			<xs:element name="match" minOccurs="1" maxOccurs="unbounded">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[a-z0-9 ]*"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- end types definitions -->
+
+</xs:schema>
