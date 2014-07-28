@@ -14,7 +14,7 @@
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
-							<mainClass>br.unesp.repositorio.tools.item2collectionruler.Item2CollectionRuler</mainClass>
+							<mainClass>br.unesp.repositorio.tools.metadatapatterner.MetadataPatterner</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
