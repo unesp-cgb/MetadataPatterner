@@ -17,7 +17,7 @@ MetadataPatterner
 
 ### Objetivo
 
-O MetadataPatterner permite a padronização de valores de um item no DSpace a partir do processamento dos valores encontrados em um metadado específico.
+O *MetadataPatterner* permite a padronização de valores de um item no DSpace a partir do processamento dos valores encontrados em um metadado específico.
 
 ### Requisitos
 
