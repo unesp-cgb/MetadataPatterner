@@ -122,4 +122,9 @@ public class Pattern {
         this.label = value;
     }
 
+    
+    @Override
+    public String toString() {
+    	return this.label;
+    }
 }

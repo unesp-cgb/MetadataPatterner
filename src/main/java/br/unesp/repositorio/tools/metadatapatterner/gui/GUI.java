@@ -20,6 +20,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.xml.bind.JAXBException;
 
@@ -39,7 +40,9 @@ public class GUI extends JFrame {
 	private JTextField tfColumn;
 
 	public GUI() {
-
+		try{
+			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+		}catch(Exception e){}
 		initializeComponent();
 		initializeConfig();
 

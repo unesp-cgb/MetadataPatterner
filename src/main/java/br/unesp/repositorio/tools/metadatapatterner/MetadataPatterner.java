@@ -20,14 +20,14 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVRecord;
-import org.apache.commons.csv.Quote;
+import org.apache.commons.csv.QuoteMode;
+
+import com.google.common.base.Joiner;
 
 import br.unesp.repositorio.base.xmlschema.metadatapatterner.ObjectFactory;
 import br.unesp.repositorio.base.xmlschema.metadatapatterner.Pattern;
 import br.unesp.repositorio.base.xmlschema.metadatapatterner.Patterns;
 import br.unesp.repositorio.tools.metadatapatterner.tools.TextUtils;
-
-import com.google.common.base.Joiner;
 
 public class MetadataPatterner {
 	private File inputCsv;
@@ -52,7 +52,7 @@ public class MetadataPatterner {
 		CSVRecord headerRecord = records.get(0);
 		String[] header = ((List<String>)IteratorUtils.toList(headerRecord.iterator())).toArray(new String[headerRecord.size()]);
 		int metadataIndex = Arrays.asList(header).indexOf(this.metadataName);
-		CSVPrinter csvPrinter = new CSVPrinter(new OutputStreamWriter(new FileOutputStream(outputCsv),"UTF8"), CSVFormat.DEFAULT.withDelimiter(',').withHeader(header).withRecordSeparator("\n").withQuotePolicy(Quote.MINIMAL));
+		CSVPrinter csvPrinter = new CSVPrinter(new OutputStreamWriter(new FileOutputStream(outputCsv),"UTF8"), CSVFormat.DEFAULT.withDelimiter(',').withHeader(header).withRecordSeparator("\n").withQuoteMode(QuoteMode.MINIMAL));
 		for(CSVRecord record : records){
 			if(!record.equals(headerRecord)){
 				List<String> values = new ArrayList<String>();
